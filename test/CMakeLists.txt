@@ -63,7 +63,7 @@ configure_test(hardware_test)
 
 # Firmware test
 add_executable(firmware_test
-        ${firmware_dir}/Firmware.cpp
+        # ${firmware_dir}/Firmware.cpp
         ${unit_tests}/firmware_test.cpp)
 target_include_directories(firmware_test PUBLIC
         ${firmware_dir}
