@@ -50,20 +50,22 @@ enable_testing()
 set(unit_tests ${CMAKE_CURRENT_SOURCE_DIR}/ut)
 set(mocks ${CMAKE_CURRENT_SOURCE_DIR}/mocks)
 
-# Calculator test
-add_executable(calculator_test
-        ${calculator_dir}/Calculator.cpp
-        ${unit_tests}/calculator_test.cpp)
-target_include_directories(calculator_test PUBLIC
-        ${calculator_dir}
-        ${mocks})
-configure_test(calculator_test)
 
-# MagicCarController test
-add_executable(magiccarcontroller_test
-        ${magiccar_dir}/MagicCarController.cpp
-        ${unit_tests}/MagicCarController_test.cpp)
-target_include_directories(magiccarcontroller_test PUBLIC
-        ${magiccar_dir}
+# Hardware test
+add_executable(hardware_test
+        ${hardware_dir}/Hardware.cpp
+        ${unit_tests}/hardware_test.cpp)
+target_include_directories(hardware_test PUBLIC
+        ${hardware_dir}
         ${mocks})
-configure_test(magiccarcontroller_test)
+configure_test(hardware_test)
+
+
+# Firmware test
+add_executable(firmware_test
+        ${firmware_dir}/Firmware.cpp
+        ${unit_tests}/firmware_test.cpp)
+target_include_directories(firmware_test PUBLIC
+        ${firmware_dir}
+        ${mocks})
+configure_test(firmware_test)

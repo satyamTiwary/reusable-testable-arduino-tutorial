@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(reusable_and_testable_code_for_arduino)
+project(mfab-firmware)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -26,7 +26,7 @@ add_compile_options(
         -Werror
 )
 
-set(calculator_dir ${CMAKE_CURRENT_SOURCE_DIR}/sketches/calculator)
-set(magiccar_dir ${CMAKE_CURRENT_SOURCE_DIR}/sketches/MagicCarControllerTestable)
+set(hardware_dir ${CMAKE_CURRENT_SOURCE_DIR}/src/Hardware)
+set(firmware_dir ${CMAKE_CURRENT_SOURCE_DIR}/src/Firmware)
 
 add_subdirectory(test)

@@ -17,15 +17,13 @@ jobs:
       - name: Fetch sketch dependencies
         run: |
           pip3 install pyserial
-          arduino-cli core update-index --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json"
-          arduino-cli core install esp32:esp32 --additional-urls "https://dl.espressif.com/dl/package_esp32_index.json"
+          arduino-cli core update-index
           arduino-cli core install arduino:avr
-          arduino-cli lib install "Smartcar shield"
+          # arduino-cli lib install "Smartcar shield"
       - name: Build sketch
         run: |
-          arduino-cli compile -b arduino:avr:uno sketches/calculator/calculator.ino
-          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 sketches/MagicCarController/SmartcarWebserver.ino
-          arduino-cli compile -b esp32:esp32:esp32doit-devkit-v1 sketches/MagicCarControllerTestable/MagicCarControllerTestable.ino
+          arduino-cli compile -b arduino:avr:due src/Firmware/Firmware.ino
+          arduino-cli compile -b arduino:avr:due src/Hardware/Hardware.ino
 
   run-unit-tests:
     runs-on: ubuntu-18.04
